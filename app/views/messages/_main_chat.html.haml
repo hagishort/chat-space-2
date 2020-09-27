@@ -1,0 +1,41 @@
+.Chat-main
+
+  .Chat-main__group-info
+    .Chat-main__left
+      test
+      .Chat-main__menber
+        Menber : masa
+    .Chat-main__right
+      = link_to "#", class: "Chat-main__btn" do
+        Edit
+            
+  .Chat-main__message-list
+    .Chat-main__messagebox
+      .Chat-main__name
+        masa
+        .Chat-main__day
+          2020/09/27(sud) 19:00:00
+      .Chat-main__comment
+        おはよう！
+
+    .Chat-main__messagebox
+      .Chat-main__name
+        masa
+        .Chat-main__day
+          2020/09/27(sud) 19:00:00
+      .Chat-main__comment
+        おはよう！
+
+  .Chat-main__message-form
+    .Chat-main__message-type
+      %form-with{class: "Chat-main__message-space"}
+        %input{class: "Chat-main__inputcomment", "placeholder": "type a message"}
+        %label{class: "Chat-main__icon"}
+          = icon('fas', 'image', class: "Chat-main__image")
+          %input{type: "file", class: "Chat-main__file"}
+
+      %input{class: "Chat-main__message-btn", "type": "submit", "value": "Send"}
+      
+        
+        
+
