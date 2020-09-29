@@ -47,11 +47,16 @@
     padding: 20px 0 40px;
     color: #ffffff;
   }
+  a {
+    text-decoration: none;
+  }
   &__group-name {
     font-size: 15px;
+    color: #ffffff;
   }
   &__group-message {
     font-size: 11px;
+    color: #ffffff;
   }
 }
 
