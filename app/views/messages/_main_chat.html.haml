@@ -1,40 +1,31 @@
 .Chat-main
-
   .Chat-main__group-info
     .Chat-main__left
-      test
+      = @group.name
       .Chat-main__menber
-        Menber : masa
+        Menber :
+        .Chat-main__menbername
+          - @group.users.each do |user|
+            = user.name
     .Chat-main__right
-      = link_to "#", class: "Chat-main__btn" do
+      = link_to edit_group_path(@group), class: "Chat-main__btn" do
         Edit
             
   .Chat-main__message-list
-    .Chat-main__messagebox
-      .Chat-main__name
-        masa
-        .Chat-main__day
-          2020/09/27(sud) 19:00:00
-      .Chat-main__comment
-        おはよう！
+    = render @messages
 
-    .Chat-main__messagebox
-      .Chat-main__name
-        masa
-        .Chat-main__day
-          2020/09/27(sud) 19:00:00
-      .Chat-main__comment
-        おはよう！
+   
+
 
   .Chat-main__message-form
-    .Chat-main__message-type
-      %form-with{class: "Chat-main__message-space"}
-        %input{class: "Chat-main__inputcomment", "placeholder": "type a message"}
-        %label{class: "Chat-main__icon"}
+    = form_with model: [@group, @message], html: {class: "Chat-main__message-type"}, local: true do |f|
+      .Chat-main__message-space
+        = f.text_field :content, class: 'Chat-main__inputcomment', "placeholder": "type a message"
+        = f.label :image, class: 'Chat-main__icon' do
           = icon('fas', 'image', class: "Chat-main__image")
-          %input{type: "file", class: "Chat-main__file"}
+          = f.file_field :image, class: 'Chat-main__file'
 
-      %input{class: "Chat-main__message-btn", "type": "submit", "value": "Send"}
+      = f.submit 'Send', class: 'Chat-main__message-btn'
       
         
         
